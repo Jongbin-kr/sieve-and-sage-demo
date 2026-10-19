@@ -3,6 +3,10 @@
 React + TypeScript + Vite로 만든 GitHub Pages용 영문 논문 소개 페이지입니다.
 논문: https://arxiv.org/abs/2609.35794
 
+페이지 디자인과 설명은 저자가 제공한 EMNLP 2026 포스터를 기반으로 합니다.
+PPTX의 원본 figure 8개를 그대로 사용하며, 클릭하면 확대·원본 크기 보기와
+스크롤이 가능합니다. 원본 A0 포스터 PDF도 페이지에서 열 수 있습니다.
+
 이번 작업 범위는 **정적 프로젝트 페이지 우선 구현**입니다. 백엔드나 GPU 모델을
 실행하지 않습니다. 데모에는 `Example simulation`을 표시하며, 사전 작성된 가상
 예제 세 가지로 논문의 흐름을 설명합니다. 사용자 입력을 임의로 분류하지 않습니다.
@@ -59,6 +63,10 @@ PR은 검증만 수행하고 공개 배포하지 않습니다. `base: './'`와 �
 | --- | --- |
 | `src/App.tsx` | 논문 소개, 개념도, 방법론, 데모, 결과 비교, 인용 |
 | `src/styles.css` | 반응형 스타일, 키보드 포커스, reduced-motion 대응 |
+| `src/ResearchFigure.tsx` | 원본 figure와 키보드 접근 가능한 확대 dialog |
+| `src/figures.ts` | figure 설명·대체 텍스트·출처와 포스터 링크 |
+| `public/figures/` | PPTX에서 변형 없이 추출한 원본 PNG 8개와 SHA256 출처 기록 |
+| `public/downloads/` | 저자가 제공한 원본 A0 포스터 PDF |
 | `src/data.ts` | 저자·논문·코드 링크, 예제, Table 15 결과, BibTeX |
 | `src/simulation.ts` | 입력 검증과 명시적 fixture 시뮬레이션 |
 | `public/results.csv` | 로컬 원문에서 별도로 추출한 논문 수치 40행 |
@@ -98,6 +106,24 @@ baseline prompt는 추가 검증해야 합니다. Sage의 현재 HF 경로는 **
 자세한 근거는 [소스 조사 문서](public/implementation-audit.md)를 참고하세요.
 GPU 재현, FastAPI/Docker, Runpod, polling, 실제 성능 측정은 이번 페이지 범위에 포함되지 않습니다.
 공개 모델 링크는 이용 조건과 checkpoint 확정 후 추가합니다.
+
+## 포스터 기반 디자인
+
+[Impeccable shape 가이드](https://impeccable.style/docs/shape/)의 독자·목적·제약·시각 방향
+정리 방식을 참고했습니다. 별도 Impeccable 패키지를 설치하거나 명령을 실행한 것은 아닙니다.
+독자는 논문을 처음 보는 연구자로 설정하고, 원본 도식으로 연구의 핵심을 먼저 설명한 뒤
+핵심 결과와 예제 데모를 먼저 배치했습니다. 그 뒤에 배경, 검색 상태, 방법론,
+데이터셋별 상세 결과, 구성요소 분석, 결론과 인용을 배치했습니다.
+
+포스터의 남색을 기본 색상으로 사용하고 답변 가능/불충분/방해 상태를 그림과 같은
+파랑/중립/빨강으로 구분합니다. 그림은 재생성·재그리기·문구 수정 없이 PPTX의
+embedded PNG bytes를 복사했습니다. `public/figures/provenance.json`에 원본 파일,
+PPTX entry, SHA256을 기록했습니다. 전체 저작 원본 `paper-and-ppts/`는 로컬 자료로
+유지하며, 배포에는 사용한 figure와 poster PDF만 포함합니다.
+
+웹 문구는 포스터의 표현을 사용하되, component analysis의 최고 성능 주장은 그림에
+나온 두 데이터셋에 한정합니다. Recovery는 논문의 연구 결과로 소개하며 데모 기능으로
+표시하지 않습니다. 포스터의 1.9×와 본문의 1.99× 표기 차이도 페이지에서 구분합니다.
 
 라이선스: 연구 코드·모델·데이터의 배포 허가를 이 페이지가 대신 부여하지 않습니다.
 기존 파일의 라이선스를 변경하지 않았으며, 사이트의 최종 라이선스는 소유자가 결정해야 합니다.

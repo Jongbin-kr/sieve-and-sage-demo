@@ -16,6 +16,14 @@ The page uses anchor navigation and relative asset URLs. No server, database,
 router rewrite, service worker or cloud account is needed to view the result.
 Only `dist/` is uploaded to Pages; the research checkout is never bundled.
 
+`src/data.ts` owns manuscript data and examples. `src/figures.ts` supplies
+poster figure metadata; `src/ResearchFigure.tsx` provides native-dialog zoom with
+keyboard focus restoration. Eight original embedded PNGs and the original poster
+PDF are public assets; the complete source deck remains local.
+
+The reading order is summary → key results → demo → background → method → detailed
+benchmarks → analysis → conclusion → citation.
+
 `src/data.ts` owns public content. `src/simulation.ts` owns validation and exact
 fixture matching. `src/App.tsx` clears results whenever the input changes. There
 are no delays masquerading as inference time, token estimators, or synthesized

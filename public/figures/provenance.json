@@ -1,0 +1,58 @@
+[
+  {
+    "file": "framework.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image5.png",
+    "sha256": "685c753b6e561df91a71245fd49c86442b435726d137032d29ea5762e77d849d",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "retrieval-states.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image4.png",
+    "sha256": "dc3e3f49c76e8e239c3b8180cf3c003aee2fbcc055fba2151b6a06a7bf550d9d",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "robust-ralm.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image11.png",
+    "sha256": "3286ec2d34945d107d1981c695daa54bbcce43860a3ad017945b243ed377c186",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "llm-abstention.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image3.png",
+    "sha256": "2217344899a27cfbb3017a666856260c6a6768ca9f7e4aace5c80e2a1732bfd0",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "accuracy-efficiency.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image6.png",
+    "sha256": "43dd2beb5cf6a4b1b0f672a6aa628358992129772ddfd7f84fc0a88cdef13c23",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "component-analysis.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image7.png",
+    "sha256": "cf8f32b63319942033c310c6c2f69ef1b4d41f2173bb673962cca2b43e082164",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "state-aware-recovery.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image8.png",
+    "sha256": "4a3e9882c086c26c14dc1ec7f547a62620eb5cc9ec111215dea1f5760a718094",
+    "transformation": "none; original embedded PNG bytes"
+  },
+  {
+    "file": "binary-training.png",
+    "source": "paper-and-ppts/(a0)EMNLP2026_poster_JongbinWon.pptx",
+    "pptx_entry": "ppt/media/image9.png",
+    "sha256": "ded9551e99c506df410b2e50ca5b08d45a7331324c487dc3293f72b15a2c4028",
+    "transformation": "none; original embedded PNG bytes"
+  }
+]

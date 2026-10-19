@@ -6,7 +6,9 @@ test('example paths, comparison, custom edits, reset and no inference traffic', 
   page.on('pageerror', error => errors.push(error.message));
   page.on('request', request => { if (/\/jobs|runpod|huggingface/.test(request.url())) remote.push(request.url()); });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Sieve & Sage.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Sieve and Sage', exact: true })).toBeVisible();
+  expect(await page.locator('#home, #results, #demo, #overview').evaluateAll(nodes => nodes.map(node => node.id)))
+    .toEqual(['home', 'results', 'demo', 'overview']);
   await page.getByRole('button', { name: 'Run example', exact: true }).click();
   await expect(page.locator('.answer-box h3')).toHaveText('1986');
   await page.getByRole('button', { name: 'Insufficient evidence', exact: true }).click();
@@ -31,6 +33,38 @@ test('example paths, comparison, custom edits, reset and no inference traffic', 
   await expect(page.getByRole('button', { name: 'Run example', exact: true })).toBeEnabled();
   expect(remote).toEqual([]);
   expect(errors).toEqual([]);
+});
+
+test('original poster figures load, enlarge accessibly, and keep their original files', async ({ page }) => {
+  await page.goto('/');
+  const images = page.locator('.figure-trigger img');
+  await expect(images).toHaveCount(8);
+  await images.evaluateAll(nodes => nodes.forEach(node => (node as HTMLImageElement).loading = 'eager'));
+  await expect.poll(() => images.evaluateAll(nodes => nodes.every(node => (node as HTMLImageElement).naturalWidth > 0))).toBe(true);
+
+  const trigger = page.getByRole('button', { name: 'Enlarge Sieve and Sage framework', exact: true });
+  await trigger.click();
+  const dialog = page.getByRole('dialog', { name: 'Sieve and Sage framework', exact: true });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole('button', { name: 'Close figure' })).toBeFocused();
+  await dialog.getByRole('button', { name: 'Original size', exact: true }).click();
+  await expect(dialog.getByRole('button', { name: 'Fit to view', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  expect(await dialog.locator('.figure-dialog-canvas').evaluate(node => node.scrollWidth > node.clientWidth)).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+  await page.getByRole('button', { name: 'Enlarge Why binary training for Sieve?', exact: true }).click();
+  const binary = page.getByRole('dialog', { name: 'Why binary training for Sieve?', exact: true });
+  await expect(binary).toBeVisible();
+  await binary.getByRole('button', { name: 'Close figure' }).click();
+  await expect(binary).not.toBeVisible();
+
+  const posterLink = page.getByRole('link', { name: 'View poster', exact: true });
+  const response = await page.request.get((await posterLink.getAttribute('href'))!);
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('application/pdf');
+  expect((await response.body()).subarray(0, 4).toString()).toBe('%PDF');
 });
 
 test('dataset controls, citation, paper link and responsive layout', async ({ page }) => {
