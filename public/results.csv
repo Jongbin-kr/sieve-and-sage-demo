@@ -1,0 +1,41 @@
+dataset,model,system_accuracy,macro_f1,latency_ms
+NQ-google,Vanilla LLM,0.102,0.179,74.204
+NQ-google,Sage-only,0.664,0.487,673.098
+NQ-google,DTA-RAAT,0.128,0.123,328.374
+NQ-google,DTA-chatQA,0.230,0.221,756.341
+NQ-google,Sieve and Sage,0.796,0.731,379.574
+NQ-wiki,Vanilla LLM,0.154,0.241,88.822
+NQ-wiki,Sage-only,0.792,0.730,144.024
+NQ-wiki,DTA-RAAT,0.167,0.142,122.625
+NQ-wiki,DTA-chatQA,0.226,0.267,138.545
+NQ-wiki,Sieve and Sage,0.638,0.632,103.794
+WebQ,Vanilla LLM,0.110,0.198,95.664
+WebQ,Sage-only,0.746,0.667,166.580
+WebQ,DTA-RAAT,0.153,0.138,134.562
+WebQ,DTA-chatQA,0.186,0.219,170.475
+WebQ,Sieve and Sage,0.578,0.562,122.435
+RealtimeQA,Vanilla LLM,0.225,0.238,78.921
+RealtimeQA,Sage-only,0.535,0.314,869.669
+RealtimeQA,DTA-RAAT,0.134,0.103,384.136
+RealtimeQA,DTA-chatQA,0.262,0.253,897.628
+RealtimeQA,Sieve and Sage,0.802,0.734,533.283
+RAG-Bench,Vanilla LLM,0.125,0.197,111.257
+RAG-Bench,Sage-only,0.397,0.415,124.208
+RAG-Bench,DTA-RAAT,0.179,0.122,101.251
+RAG-Bench,DTA-chatQA,0.191,0.215,112.768
+RAG-Bench,Sieve and Sage,0.368,0.375,110.259
+MedQA,Vanilla LLM,0.322,0.412,168.602
+MedQA,Sage-only,0.489,0.548,509.038
+MedQA,DTA-RAAT,0.041,0.127,304.529
+MedQA,DTA-chatQA,0.297,0.367,502.077
+MedQA,Sieve and Sage,0.682,0.766,322.954
+BioASQ,Vanilla LLM,0.333,0.326,138.037
+BioASQ,Sage-only,0.428,0.529,389.105
+BioASQ,DTA-RAAT,0.002,0.073,216.414
+BioASQ,DTA-chatQA,0.456,0.362,363.750
+BioASQ,Sieve and Sage,0.428,0.552,312.165
+AstroQA,Vanilla LLM,0.218,0.347,779.595
+AstroQA,Sage-only,0.550,0.620,661.126
+AstroQA,DTA-RAAT,0.093,0.170,393.698
+AstroQA,DTA-chatQA,0.208,0.296,693.382
+AstroQA,Sieve and Sage,0.630,0.662,453.511

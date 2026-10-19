@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+test-results/
+playwright-report/
+# Local research inputs are not part of the website release.
+Sieve-and-Sage/
+paper.md
+poster.md

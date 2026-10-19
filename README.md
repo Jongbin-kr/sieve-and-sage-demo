@@ -31,20 +31,19 @@ npm run preview         # dist의 로컬 미리보기, Ctrl+C로 종료
 
 ## GitHub Pages 배포
 
-이 디렉터리는 현재 유효한 Git 저장소가 아니며, 아래의 `Sieve-and-Sage/`는 별도
-연구 코드 checkout입니다. 사이트 파일은 현재 디렉터리를 루트로 하는 새 저장소에
-넣으세요. 연구 checkout 자체를 덮어쓸 필요는 없습니다.
+사이트 저장소는 `Jongbin-kr/sieve-and-sage-demo`입니다. 로컬의 `Sieve-and-Sage/`는
+별도 연구 코드 checkout이며 사이트 배포에 포함하지 않습니다.
 
-1. `Jongbin-kr` 계정에서 새 저장소(예: `sns-project-page`)를 만듭니다.
+1. `Jongbin-kr/sieve-and-sage-demo` 저장소를 사용합니다.
 2. 이 디렉터리의 사이트 소스, `package-lock.json`, `public/`, `tests/`,
    `scripts/`, `docs/`, `.github/workflows/pages.yml`을 저장소 루트에 넣습니다.
    `node_modules/`, `dist/`, 로컬 `paper.md`, `poster.md`, 연구 checkout은 제외합니다.
    `.gitignore`에 제외 항목이 설정되어 있습니다.
 3. 기본 브랜치를 `main`으로 하고 **Settings → Pages → Source → GitHub Actions**를 선택합니다.
 4. `main`에 push하거나 Actions에서 `Verify and deploy GitHub Pages`를 수동 실행합니다.
-5. 검증을 통과하면 배포 작업에 사이트 URL이 표시됩니다. 저장소명이
-   `sns-project-page`라면 예상 주소는 `https://jongbin-kr.github.io/sns-project-page/`입니다.
-   **현재 실제 배포된 주소는 아닙니다.**
+5. 검증과 배포를 통과하면 사이트 주소는
+   `https://jongbin-kr.github.io/sieve-and-sage-demo/`입니다.
+   실제 배포 성공 여부는 Actions의 `deploy` 작업과 사이트 접속으로 확인합니다.
 
 PR은 검증만 수행하고 공개 배포하지 않습니다. `base: './'`와 해시 탐색을 사용해
 저장소 이름을 바꾸거나 프로젝트 하위 경로에 배포해도 정적 자산이 작동합니다.
